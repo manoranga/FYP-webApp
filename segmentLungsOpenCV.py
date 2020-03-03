@@ -3,7 +3,7 @@ import cv2
 # import os
 # import globS
 # import pydicom as dicom
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 from skimage.morphology import extrema
 from skimage.morphology import watershed as skwater
 from PIL import Image
