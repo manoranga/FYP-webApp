@@ -1,3 +1,4 @@
+scikit-image
 Werkzeug
 Flask
 numpy
@@ -6,3 +7,4 @@ gevent
 pillow
 h5py
 tensorflow
+cv2
