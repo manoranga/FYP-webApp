@@ -1,0 +1,9 @@
+cv2
+Werkzeug
+Flask
+numpy
+Keras
+gevent
+pillow
+h5py
+tensorflow

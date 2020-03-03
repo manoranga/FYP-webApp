@@ -1,0 +1,123 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="main">
+  <div class="title">
+    <h3>Detecting Pneumonia and TB </h3>
+    <h2 align="center">Team Sentaurs</h2>
+    <!-- <p>
+      <small>A web app demo</small>
+    </p> -->
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" style=" border-right-style: solid;">
+               <div class="row">
+                     <div>
+                         <u> <b style="padding-left: 92px;">Random Forest</b> </u>
+                     </div>
+                 </div>
+                 <div class="row">
+                   <b  style="padding-bottom:25px"> <div align="center" class="col-md-6">Prediction</div></b>
+                   <b> <div align="center" style="padding-left: 66px" class="col-md-6">Probability</div></b>
+                </div>
+                 <div class="row" style="padding-bottom:25px">
+                   <b> <div id="randomforest_prediction"  align="center" class="col-md-6">NAN</div></b>
+                   <b> <div id="randomforest_probability" align="center" style="padding-left: 187px" class="col-md-6">NAN</div></b>
+                </div>
+
+            </div>
+             <div class="col-md-6"align="center">
+                 <div class="panel">
+                    <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+                     <label for="file-upload" id="file-drag" class="upload-box">
+                     <div id="upload-caption">Drop image here or click to select</div>
+                     <img id="image-preview" class="hidden" />
+                     </label>
+                 </div>
+             </div>
+             <div class="col-md-3" style=" border-left-style: solid;">
+                 <div class="row" >
+                     <div>
+                         <u> <b style =" padding-left: 92px;">k-NN</b> </u>
+                     </div>
+                 </div>
+                 <div class="row">
+                   <b  style="padding-bottom:25px"> <div align="center" class="col-md-6">Prediction</div></b>
+                   <b> <div align="center" style="padding-left: 66px" class="col-md-6">Probability</div></b>
+                </div>
+                 <div class="row" style="padding-bottom:25px">
+                   <b> <div id="KNN_prediction" align="center" class="col-md-6">NAN</div></b>
+                   <b> <div id="KNN_probability" align="center" style="padding-left: 187px" class="col-md-6">NAN</div></b>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+  <div style="margin-bottom: 2rem;">
+    <input type="button" value="Submit" class="button" onclick="submitImage();" />
+    <input type="button" value="Clear" class="button" onclick="clearImage();" />
+  </div>
+   <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+            <div align="center">
+             <b>  Segmented Image U net</b>
+            </div>
+           <div align="center">
+             <div id="image-box1">
+              <img id="image-display_segmented" />
+              <div id="pred-result-segmented" class="hidden"></div>
+                  <b> Prediction Probability :  <div id="predict-probability-segmented" class="hidden"></div></b>
+               <svg id="loader" class="hidden" viewBox="0 0 32 32" width="25" height="32">
+                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+              </svg>
+            </div>
+             </div>
+          </div>
+          <div class="col-md-4" style="padding: 61px;">
+            <div align="center">
+             <b>  Normal Image</b>
+            </div>
+           <div align="center">
+             <div id="image-box">
+              <img id="image-display" />
+              <div id="pred-result" class="hidden"></div>
+               <b> Prediction Probability :  <div id="predict-probability" class="hidden"></div></b>
+               <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+              </svg>
+            </div>
+             </div>
+          </div>
+          <div class="col-md-4">
+            <div align="center">
+             <b>  Manually Segmented Image</b>
+            </div>
+           <div align="center">
+             <div id="image-box3">
+              <img id="image-display_rotated" />
+                 <div id="pred-result_rotated" class="hidden"></div>
+              <b> Prediction Probability :<div id="predict-probability_rotated" class="hidden"></div></b>
+               <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32" >
+                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+              </svg>
+            </div>
+             </div>
+          </div>
+      </div>
+   </div>
+</div>
+  </div>
+
+
+
+<!--<script>-->
+<!--&lt;!&ndash;     console.log("ssssss")&ndash;&gt;-->
+<!--&lt;!&ndash;     var  x = document.getElementById("image-display3");&ndash;&gt;-->
+<!--&lt;!&ndash;     console.log(x)&ndash;&gt;-->
+<!--&lt;!&ndash;     x.src ='templates/SaveMask/segmented_mask.jpeg'&ndash;&gt;-->
+<!--</script>-->
+
+{% endblock %}
